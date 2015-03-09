@@ -1,0 +1,35 @@
+extends ../layout
+
+block content
+    .ui.segment
+        .ui.breadcrumb
+            a.section 球队
+            i.right.chevron.icon.divider
+            .active.section 队员信息
+    form(class="ui form segment",method="post",action="save")
+        .field
+            label 名称
+            .ui.left.input
+                input(placeholder='请输入球队名称', type='text',name="full_name")
+        .field
+            label 联系电话号码
+            .ui.left.input
+                input(placeholder='请输入球队名称', type='text',name="contact_number")
+        .field
+            label 技术标签
+            .ui.left.input
+                input(placeholder='请输入技术标签', type='text',name="tags")
+        .field
+            label 联系QQ
+            .ui.left.input
+                input(placeholder='请输入球队口号', type='text',name="im_qq")
+        .field
+            label 联系微信号
+            .ui.left.input
+                input(placeholder='请输入球队口号', type='text',name="im_wx")
+        .field
+            label 个人简介
+            .ui.left.input
+                textarea(placeholder='请输入个人简介',name="content")
+
+        .ui.blue.submit.button 确认
