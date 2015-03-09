@@ -10,7 +10,7 @@ var users = require('./routes/users');
 var teams = require('./routes/teams');
 var players = require('./routes/players');
 var games = require('./routes/games');
-var competitions = require('./routes/games');
+var competitions = require('./routes/competitions');
 var app = express();
 
 // view engine setup
