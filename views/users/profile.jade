@@ -1,0 +1,33 @@
+extends ../layout
+
+block content
+    .ui.segment
+        .ui.breadcrumb
+            a.section 用户
+            i.right.chevron.icon.divider
+            .active.section 个人信息
+    form(class="ui form segment",method="post",action="profile")
+        .field
+            label 姓名
+            .ui.left.input
+                input(placeholder='请输入姓名', type='text',name="full_name")
+        .field
+            label 出身年
+            .ui.left.input
+                input(placeholder='请输入出身年', type='text',name="birth_year")
+        .inline.fields
+            label(for='gender') 性别:
+            .field
+                .ui.radio.checkbox
+                    input(name='gender', checked='', type='radio')
+                    label 男
+            .field
+                .ui.radio.checkbox
+                    input(name='gender', type='radio')
+                    label 女
+        .field
+            label 城市
+            .ui.left.input
+                input(placeholder='请输入城市', type='text',name="city")
+
+        .ui.blue.submit.button 确认

@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/css/semantic.min.css')
+    script(src='/js/lib/jquery-2.1.3.min.js')
+    script(src='/js/lib/semantic.min.js')
+    script(src='/js/lib/ractive.min.js')
+  body
+    .ui.menu
+          a.red.item
+              i.mail.icon
+              |     Mail
+          a.teal.item
+              i.lab.icon
+              |     Lab
+          a.green.item
+              i.star.icon
+              |     Favorites
+
+    block content
+    .ui.segment
+        | 4412293
+    block jsContent

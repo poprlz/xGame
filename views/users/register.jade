@@ -1,0 +1,25 @@
+extends ../layout
+
+block content
+    .ui.segment
+        .ui.breadcrumb
+            a.section 用户
+            i.right.chevron.icon.divider
+            .active.section 注册
+    form(class="ui form segment",method="post",action="register")
+        .field
+            label 电子邮件
+            .ui.left.icon.input
+                input(placeholder='请输入注册电子邮件', type='email',name="user_name")
+                i.user.icon
+        .field
+            label 登陆密码
+            .ui.left.icon.input
+                input(type='password',name="user_password")
+                i.lock.icon
+        .field
+            label 确认登陆密码
+            .ui.left.icon.input
+                input(type='password',name="confirm_user_password")
+                i.lock.icon
+        .ui.blue.submit.button 注册
