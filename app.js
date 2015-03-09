@@ -10,6 +10,7 @@ var users = require('./routes/users');
 var teams = require('./routes/teams');
 var players = require('./routes/players');
 var games = require('./routes/games');
+var competitions = require('./routes/games');
 var app = express();
 
 // view engine setup
@@ -29,6 +30,7 @@ app.use('/users', users);
 app.use('/teams', teams);
 app.use('/players', players);
 app.use('/games', games);
+app.use('/competitions', competitions);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
