@@ -5,7 +5,8 @@ block content
         .ui.breadcrumb
             a.section 用户
             i.right.chevron.icon.divider
-            .active.section 登陆
+            .active.section 登录
+    .ui.success.message
     form(class="ui form segment",method="post",action="login")
         .field
             label 电子邮件
@@ -17,4 +18,59 @@ block content
             .ui.left.icon.input
                 input(type='password',name="user_password")
                 i.lock.icon
-        .ui.blue.submit.button 登陆
+        .ui.blue.submit.button 登录
+
+block jsContent
+    script.
+        $(document).ready(function () {
+            console.log("AAAA");
+
+            var form_rule = {
+                user_name: {
+                    identifier: 'user_name',
+                    rules: [
+                        {
+                            type: 'empty',
+                            prompt: '请输入登录电子邮件'
+                        },
+                        {
+                            type: 'email',
+                            prompt: '请输入正确的登录电子邮件'
+                        }
+                    ]
+                },
+                user_password: {
+                    identifier: 'user_password',
+                    rules: [
+                        {
+                            type: 'empty',
+                            prompt: '请输入登陆密码'
+                        },
+                        {
+                            type: 'maxLength[10]',
+                            prompt: '请输入正确的登陆密码'
+                        }
+
+                    ]
+                }
+            };
+
+            $('.ui.form.segment').form(form_rule, {
+                inline: true,
+                on: 'blur',
+                onSuccess: function () {
+                    console.log("OK Success")
+                    var data = $('.ui.form.segment').serialize();
+                    console.log(data);
+                    $.post($('.ui.form.segment').attr("action"), data,
+                            function (data, textStatus) {
+                                 console.log(data)
+                                if(data.resp_code && data.resp_code=='00000'){
+                                    $(".ui.success.message").html('<div class="header">恭喜你，登录成功啦，哈哈</div>');
+                                }
+                            },"json");
+                }
+            }).submit(function () {
+                return false;
+            });
+        });

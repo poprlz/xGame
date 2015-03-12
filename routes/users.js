@@ -9,7 +9,10 @@ router.get('/login', function(req, res, next) {
     res.render('users/login', { title: '用户登陆' });
 });
 router.post('/login', function(req, res, next) {
-    res.render('users/login', { title: '用户登陆' });
+    console.log("user_password:"+req.param('user_password'))
+    console.log("user_name:"+req.param('user_name'))
+    res.json({ resp_code: '00000' })
+    //res.render('users/login', { title: '用户登陆' });
 });
 router.get('/register', function(req, res, next) {
     res.render('users/register', { title: '用户注册' });
